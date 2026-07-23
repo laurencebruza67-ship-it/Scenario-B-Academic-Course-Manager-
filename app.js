@@ -32,11 +32,11 @@ function navigate(direction) {
 
 
 let courseData = [
-    { id: "CS101", name: "Computer Science", category: "Major", status: "Enrolled", units: 4 },
-    { id: "MATH201", name: "Database Systems", category: "Major", status: "Enrolled", units: 4 },
-    { id: "ENG101", name: " Life and Works of Jose Rizal", category: "GE", status: "Enrolled", units: 2 },
-    { id: "HIST102", name: "Physical Education (PathFit)", category: "GE", status: "Enrolled", units: 3 },
-    { id: "ART105", name: "Multimedia and Digital Arts", category: "Elective", status: "Enrolled", units: 2 }
+    { id: "Monday, Wednesday,<br> and Friday,", name: "Computer Science", category: "Major", status: "3:00PM - 7:00PM", units: 4 },
+    { id: "Monday, Tuesday,<br> and Thursday", name: "Database Systems", category: "Major", status: "10:30AM - 2:30PM", units: 4 },
+    { id: "Wednesday and Friday", name: " Life and Works of Jose Rizal", category: "GE", status: "12:00PM - 2:00PM", units: 2 },
+    { id: "Saturday", name: "Physical Education (PathFit)", category: "GE", status: "1:00PM - 3:00PM", units: 2 },
+    { id: "Tuesday, Thursday,<br> and Friday", name: "Multimedia and Digital Arts", category: "Elective", status: "8:00AM - 10:00AM", units: 2 }
 ];
 
 let activeCategory = "All";
@@ -149,7 +149,7 @@ function renderDetailsTable() {
         row.innerHTML = `
             <td class="fw-bold">${course.id}</td>
             <td>${course.name}</td>
-            <td><span class="badge bg-light text-dark border">${course.category}</span></td>
+            <td><span class="badge text-dark">${course.category}</span></td>
             <td class="fw-bold text-success">${course.units}</td>
             <td><span class="badge ${getBadgeClass(course.status)}">${course.status}</span></td>
         `;
@@ -183,26 +183,6 @@ function filterCategory(category, element) {
     renderCards();
 }
 
-function handleAddCourse(event) {
-    event.preventDefault();
-
-    const newCourse = {
-        id: document.getElementById("courseCode").value.trim().toUpperCase(),
-        name: document.getElementById("courseName").value.trim(),
-        category: document.getElementById("courseCategory").value,
-        units: Number(document.getElementById("courseUnits").value),
-        status: document.getElementById("courseStatus").value
-    };
-
-    courseData.push(newCourse);
-    renderAll();
-
-    // Reset and close modal
-    addCourseForm.reset();
-    const modalElement = document.getElementById("addCourseModal");
-    const modalInstance = bootstrap.Modal.getInstance(modalElement);
-    if (modalInstance) modalInstance.hide();
-}
 
 const midtermInput = document.getElementById("midterm-input");
 const finalInput = document.getElementById("final-input");
