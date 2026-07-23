@@ -64,6 +64,11 @@
             <div class="collapse navbar-collapse" id="mainDepartmentNavbar">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-2">
                     <li class="nav-item">
+                        <span class="badge bg-light rounded-pill px-3 py-2">
+                            Enrolled Courses: <span id="nav-course-count">0</span>
+                        </span>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" id="nav-home" href="#" onclick="switchView('home')">Home</a>
                     </li>
                     <li class="nav-item">
@@ -71,12 +76,6 @@
                     </li>
                     <li class="nav-item me-2">
                         <a class="nav-link" id="nav-details" href="#" onclick="switchView('details')">Details</a>
-                    </li>
-                 
-                    <li class="nav-item">
-                        <span class="badge bg-success rounded-pill px-3 py-2">
-                            Enrolled Courses: <span id="nav-course-count">0</span>
-                        </span>
                     </li>
                 </ul>
             </div>
