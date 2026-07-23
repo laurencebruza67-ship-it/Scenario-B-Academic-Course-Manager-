@@ -41,13 +41,13 @@ let courseData = [
 
 let activeCategory = "All";
 
-// DOM References
+
 let cardsContainer, detailsTableBody, navCourseCount, totalUnitsMetric, activeCoursesMetric, addCourseForm;
 
 
-// --- INITIAL SETUP ON PAGE LOAD ---
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Bind DOM elements
+   
     cardsContainer = document.getElementById("course-cards-container");
     detailsTableBody = document.getElementById("details-table-body");
     navCourseCount = document.getElementById("nav-course-count");
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     activeCoursesMetric = document.getElementById("metric-active-courses");
     addCourseForm = document.getElementById("addCourseForm");
 
-    // Carousel buttons
+   
     const prevBtn = document.querySelector('#prevBtn');
     const nextBtn = document.querySelector('#nextBtn');
 
@@ -81,7 +81,7 @@ function switchView(viewName) {
 }
 
 
-// --- HELPER FUNCTIONS ---
+
 function getBadgeClass(status) {
     switch (status) {
         case "Enrolled": return "bg-success";
@@ -92,7 +92,6 @@ function getBadgeClass(status) {
 }
 
 
-// --- DYNAMIC RENDERING ---
 function renderAll() {
     renderCards();
     renderDetailsTable();
@@ -172,14 +171,13 @@ function updateMetrics() {
 function filterCategory(category, element) {
     activeCategory = category;
 
-    // Remove active class from all filter buttons in the group
+    
     const filterBtns = element.parentElement.querySelectorAll(".btn");
     filterBtns.forEach(btn => btn.classList.remove("active"));
 
-    // Add active class to clicked button
+   
     element.classList.add("active");
 
-    // Re-render the course cards with the filtered category
     renderCards();
 }
 
